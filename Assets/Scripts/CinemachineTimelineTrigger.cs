@@ -14,10 +14,11 @@ public class CinemachineTimelineTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-        {
-            player.SetActive(false);            
+        {                     
             timeline.Play();
-
+            player.GetComponent<FirstPersonController_Sam>().enabled = false;  
+            
+            // TODO: Need to add logic to listen for cinemachine event complete and reactivate player control
 
             // only use if you want to have an event that only triggers once
             if (OneTimeTrigger == true)
